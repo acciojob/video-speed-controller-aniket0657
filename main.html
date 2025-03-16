@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Video Player</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        .player {
+            max-width: 750px;
+            margin: auto;
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .player__controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #333;
+            padding: 10px;
+            color: white;
+        }
+        .progress {
+            flex: 1;
+            height: 5px;
+            background: gray;
+            margin: 0 10px;
+            position: relative;
+        }
+        .progress__filled {
+            width: 0;
+            height: 100%;
+            background: red;
+        }
+    </style>
 </head>
 <body>
     <div class="player">
-        <video class="viewer" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
-
-        <div class="controls">
+        <video class="viewer" src="https://www.w3schools.com/html/mov_bbb.mp4" width="100%"></video>
+        <div class="player__controls">
             <button class="player__button toggle">►</button>
-            <button class="player__button rewind">« 10s</button>
-            <button class="player__button forward">25s »</button>
-
+            <button class="rewind" data-skip="-10">« 10s</button>
+            <button class="fastForward" data-skip="25">25s »</button>
             <input type="range" class="volume" min="0" max="1" step="0.05" value="1">
             <input type="range" class="playbackSpeed" min="0.5" max="2" step="0.1" value="1">
-
             <div class="progress">
                 <div class="progress__filled"></div>
             </div>
         </div>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>
